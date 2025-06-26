@@ -1,0 +1,12 @@
+.searchBarContainer{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBar{
+    padding: 7px 15px;
+    border-radius: 50px;
+}

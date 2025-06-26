@@ -1,0 +1,24 @@
+.header{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__logo-desktop{
+    display: none;
+}
+
+.header__logo-mobile{
+    width: 50px;
+}
+
+.header__container-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bi-cart{
+    font-size: 25px;
+}
