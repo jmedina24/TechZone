@@ -4,10 +4,14 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Componentes
 import Header from './components/Header';
+import Header2 from './components/Header2';
+import EmptyCart from './subComponents/EmptyCart';
 
 function App() {
   return (
-   <Header/>
+    <>
+   <Header2 />
+   </>
   );
 }
 

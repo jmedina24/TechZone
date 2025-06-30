@@ -1,0 +1,28 @@
+.emptyCart{
+    padding: 100px 0px;
+}
+
+.emptyCart__container-image{
+    display: flex;
+    justify-content: center;
+}
+
+.emptyCart__image{
+    width: 200px;
+}
+
+.emptyCart__container-text{
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.emptyCart__text{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
