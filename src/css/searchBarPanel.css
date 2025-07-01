@@ -1,0 +1,48 @@
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 35;
+}
+
+.panel__search{
+  position: fixed;
+  top: 0px; /* deja espacio para el logo */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 100px);
+  background: white;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideUp 0.3s ease-out;
+}
+
+.panel__search-btn{
+    border: none;
+    background-color: white;
+  align-self: flex-start;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.panel__search-btn :hover{
+    background-color: #0081EA;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}

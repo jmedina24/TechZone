@@ -1,5 +1,5 @@
 .searchbar__container{
-    padding: 5px;
+    padding: 0px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -7,9 +7,11 @@
 }
 
 .searchbar__input{
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px 20px;
     border-radius: 50px;
+    align-items: center;
+    justify-content: center;
 }
 
 .searchBar{

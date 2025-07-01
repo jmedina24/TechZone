@@ -4,17 +4,17 @@ import SearchBar from '../subComponents/SearchBar';
 import NavbarLinks from '../subComponents/NavbarLinks';
 import CartAccess from '../subComponents/CartAccess';
 import MenuAccess from '../subComponents/MenuAccess';
-import CloseMenuAccess from '../subComponents/CloseMenuAccess';
 import ProfileMenuLinks from '../subComponents/ProfileMenuLinks';
 import PersonalInformationAccess from '../subComponents/PersonalInformationAccess';
 import '../css/header2.css';
+import { Link } from 'react-router-dom';
 
 const Header2 = () => {
   return (
     <div className='header'>
         <div className='header__container-left'>
             <div className='header__container-logo'>
-                <a className='header__btn-logo' href='#'><img className='header__logo' src={logo} alt='Logo'></img></a>
+                <Link to='/'><img className='header__logo' src={logo} alt='Logo'></img></Link>
             </div>
             <div className='header__container-location'>
                 <div className='header__location-logo'>
@@ -46,10 +46,6 @@ const Header2 = () => {
 
                 <div className='header__container-logo-menu'>
                     <MenuAccess />
-                </div>
-
-                <div className='header__container-logo-close'>
-                    <CloseMenuAccess />
                 </div>
             </div>
         </div>

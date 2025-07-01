@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/cartAccess.css'
-import { Link } from 'react-router'
-import EmptyCart from './EmptyCart'
+import { Link, useNavigate } from 'react-router'
+import Cart from '../pages/Cart'
+import EmptyCart from '../pages/EmptyCart'
 
 const CartAccess = () => {
+  const navigate = useNavigate();
+
+  const [cart, setCart] = useState([]);
+
+  const goToCart = () => {
+    if (cart.length > 0){
+      navigate('/cart')
+    }else{
+      navigate('/emptycart')
+    }
+  };
+  
   return (
     <div className='cart'>
-        <div className='cart__container'>
-            <a className='cart__btn' onClick={() => <EmptyCart />}><span className='cart__logo'><i class="bi bi-cart"></i></span></a>
+        <button className='cart__btn' onClick={goToCart}>
+            <i className="bi bi-cart"></i>
+        </button>
             
-        </div>
+            
+            
+        
     </div>
   )
 }
