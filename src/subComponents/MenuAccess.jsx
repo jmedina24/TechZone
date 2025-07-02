@@ -3,21 +3,54 @@ import '../css/menuAccess.css';
 import SearchBar from '../subComponents/SearchBar';
 import { Link } from 'react-router-dom';
 import SearchBarPanel from './SearchBarPanel';
+import Login from '../pages/Login';
+import SignUp from '../pages/SignUp';
 
 const MenuAccess = () => {
 
-  const [isOpen, setIsOpen] = useState(false);
+  // Loging and SignUp
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
 
+  const handleLogin = (email, password) => {
+    console.log('Login with: ', email, password);
+    setShowLogin(false);
+  }
+
+  const handleRegister = (data) => {
+    console.log('Register with: ', data);
+    setShowRegister(false);
+  };
+
+  // Menu
+  const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
+
+  // Search
   const [showSearch, setShowSearch] = useState(false);
 
+  // Scroll lock
     useEffect(() => {
       document.body.style.overflow = isOpen ? 'hidden' : 'auto';
       return () => {
         document.body.style.overflow = 'auto';
       };
     }, [isOpen]);
+
+      // Abrir Login desde evento personalizado
+  useEffect(() => {
+    const handleOpenLogin = () => {
+      setShowRegister(false);
+      setShowLogin(true);
+    };
+
+    window.addEventListener('openLogin', handleOpenLogin);
+    return () => {
+      window.removeEventListener('openLogin', handleOpenLogin);
+    };
+  }, []);
+
 
   return (
     <div className='menu'>
@@ -40,8 +73,28 @@ const MenuAccess = () => {
               <p className='menu__description'>¡Inicia sesión en tu cuenta o crea una nueva!</p>
             </div>
             <div className='menu__container-btn'>
-              <Link to='/login'><button type="button" class="btn btn-primary">Iniciar sesión</button></Link>
-              <Link to='/signup'><button type="button" class="btn btn-light">Crear cuenta</button></Link>
+              <button className="btn btn-primary w-100 mb-2" onClick={() => setShowLogin(true)}>Iniciar sesión</button>
+              <button className='btn btn-outline-primary w-100 mb-2' onClick={() => setShowRegister(true)}>Crear cuenta</button>
+              
+              {showLogin && (
+                <Login 
+                  show={showLogin} 
+                  handleClose={() => setShowLogin(false)} 
+                  handleLogin={handleLogin} 
+                  openRegister={() => {
+                    setShowLogin(false); 
+                    setShowRegister(true);
+                  }} 
+              />
+              )}
+
+              {showRegister && (
+              <SignUp 
+                show={showRegister}
+                handleClose={() => setShowRegister(false)}
+                handleRegister={handleRegister} 
+              />
+              )}
             </div>
             </div>
             </div>

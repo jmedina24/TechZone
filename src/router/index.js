@@ -9,6 +9,7 @@ import SignUp from "../pages/SignUp";
 import Favourites from "../pages/Favourites";
 import BestSellers from "../pages/BestSellers";
 import Offers from "../pages/Offers";
+import ForgotPassword from "../pages/ForgotPassword";
 
 export const router = createBrowserRouter([
     {
@@ -54,6 +55,11 @@ export const router = createBrowserRouter([
     {
         path: '/offers',
         element: <Offers />,
+        errorElement: <Error404 />
+    },
+    {
+        path: '/forgotpassword',
+        element: <ForgotPassword />,
         errorElement: <Error404 />
     },
     
