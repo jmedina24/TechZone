@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import SearchBarPanel from './SearchBarPanel';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
+import CategoryPanel from './CategoryPanel';
 
 const MenuAccess = () => {
 
@@ -29,6 +30,8 @@ const MenuAccess = () => {
 
   // Search
   const [showSearch, setShowSearch] = useState(false);
+
+  const [showCategory, setShowCategory] = useState(false);
 
   // Scroll lock
     useEffect(() => {
@@ -102,9 +105,11 @@ const MenuAccess = () => {
           </div>
               <Link to='/'><i class="bi bi-house-door"></i>Inicio</Link>
               <button className='search__btn' onClick={() => setShowSearch(true)}><i class="bi bi-search"></i>Buscar productos</button>
-              <SearchBarPanel visible={showSearch} onClose={() => setShowSearch(false)}/>
+              <SearchBarPanel visible={showSearch} onClose={() => setShowSearch(false)} />
               <Link to='/favourites'><i class="bi bi-heart"></i>Favoritos</Link>
-              <Link to='/categories'><i class="bi bi-list-ul"></i>Categorías</Link>
+              <button className='search__btn' onClick={() => setShowCategory(true)}><i class="bi bi-list-ul"></i>Categorías</button>
+              <CategoryPanel visible={showCategory} onClose={() => setShowCategory(false)} />
+              {/*<Link to='/categories'><i class="bi bi-list-ul"></i>Categorías</Link>*/}
               <Link to='/offers'><i class="bi bi-tag"></i>Ofertas</Link>
               <Link to='/bestsellers'><i class="bi bi-star"></i>Más vendidos</Link>
               <Link to='/help'><i class="bi bi-info-circle"></i>Ayuda</Link>
