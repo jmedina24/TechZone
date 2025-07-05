@@ -1,20 +1,97 @@
-.searchbar__container{
-    padding: 0px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.searchbar__wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  position: relative; /* necesario para el posicionamiento absoluto */
 }
 
-.searchbar__input{
-    font-size: 15px;
-    padding: 5px 20px;
-    border-radius: 50px;
-    align-items: center;
-    justify-content: center;
+.searchbar__container {
+  position: relative;
+  width: 100%;
 }
 
-.searchBar{
-    padding: 7px 15px;
-    border-radius: 50px;
+.searchbar__input {
+  width: 100%;
+  padding: 10px 40px 10px 36px; /* espacio para iconos */
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.searchbar__input:focus {
+  border-color: #007BFF;
+}
+
+.searchbar__icon-left {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #777;
+  pointer-events: none;
+}
+
+.searchbar__icon-right {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #007BFF;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+/* Resultados flotantes */
+.searchbar__results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  margin-top: 0;
+  padding: 0;
+}
+
+.searchbar__results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.searchbar__results li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s, color 0.2s;
+  border-radius: 0 0 10px 10px;
+}
+
+.searchbar__results li:hover {
+  background-color: #007BFF;
+  color: white;
+}
+
+.searchbar__noresults {
+  padding: 8px 12px;
+  color: #999;
+  font-style: italic;
+}
+
+@media (min-width: 768px){
+    .searchbar__wrapper{
+        margin-top: 5px;
+    }
 }

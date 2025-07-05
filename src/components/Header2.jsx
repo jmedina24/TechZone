@@ -3,11 +3,13 @@ import logo from '../images/logo-desktop.png';
 import SearchBar from '../subComponents/SearchBar';
 import NavbarLinks from '../subComponents/NavbarLinks';
 import CartAccess from '../subComponents/CartAccess';
-import MenuAccess from '../subComponents/MenuAccess';
+import MenuAccess from './MenuAccess';
 import ProfileMenuLinks from '../subComponents/ProfileMenuLinks';
 import PersonalInformationAccess from '../subComponents/PersonalInformationAccess';
 import '../css/header2.css';
 import { Link } from 'react-router-dom';
+import LocationInfo from '../subComponents/LocationInfo';
+import DesktopMenu from '../subComponents/DesktopMenu';
 
 const Header2 = () => {
   return (
@@ -18,10 +20,7 @@ const Header2 = () => {
             </div>
             <div className='header__container-location'>
                 <div className='header__location-logo'>
-                    <span><i className="bi bi-geo-alt"></i></span>
-                    <div className='header__location'>
-                        Montevideo, Uruguay
-                    </div>
+                    <LocationInfo />
                 </div>
             </div>
         </div>
@@ -32,7 +31,7 @@ const Header2 = () => {
             </div>
 
             <div className='header__container-links'>
-                <NavbarLinks />
+                <DesktopMenu />
             </div>
 
         </div>

@@ -44,4 +44,16 @@
     .header__container-links{
         display: none;
     }
+
+    .header__container-location{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header__container-smaall-screen{
+        display: none;
+    }
+
 }
+

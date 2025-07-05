@@ -115,29 +115,6 @@
 }
 
 
-.menu__container-user-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 10px;
-    border-top: 2.5px solid #0081EA;
-    border-bottom: 2.5px solid #0081EA;
-}
-
-.menu__container-person{
-    display: flex;
-    flex-direction: row;
-}
-
-.menu__person-logo i{
-    font-size: 50px;
-    padding: 0px;
-}
-
-
-.menu__container-person-text{
-    margin-left: 15px;
-}
 
 .menu__container-description{
     margin-top: 10px;
@@ -175,3 +152,25 @@
   padding-left: 0px;
   color: white;
 }
+
+@media (min-width: 500px) {
+  .menu__container-links {
+    width: 50%;          /* Ocupa la mitad del ancho */
+    right: 0;            /* Está pegado al borde derecho */
+    top: 150;              /* Para que cubra toda la altura desde arriba */
+    padding-top: 10px;   /* Ajusta para que no tape el botón hamburguesa */
+  }
+
+  /* Cuando está cerrado, lo movemos al 100% (fuera de pantalla) */
+  .menu__container-links:not(.active) {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  /* Cuando está abierto (active), está en posición natural */
+  .menu__container-links.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+

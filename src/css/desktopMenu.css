@@ -1,0 +1,39 @@
+.desktop-menu {
+  display: none;
+  background: #f8f8f8;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.desktop-menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.desktop-menu li {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.dropdown-toggle:hover {
+  color: #007BFF;
+}
+
+@media (min-width: 769px) {
+  .desktop-menu {
+    display: block;
+  }
+}
