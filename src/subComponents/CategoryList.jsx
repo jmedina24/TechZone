@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../css/categoryList.css';
 
 const categories = [
-    {
+  {
     name: 'Componentes',
     path: '/categoria/componentes',
     subcategories: [
@@ -79,7 +80,6 @@ const categories = [
       { name: 'Vinchas y Auriculares', path: '/categoria/perifericos/vinchas-auriculares' },
     ],
   },
-  
   {
     name: 'Redes y Adaptadores',
     path: '/categoria/redes-adaptadores',
@@ -106,34 +106,37 @@ const categories = [
     subcategories: [
       { name: 'Antivirus', path: '/categoria/software/antivirus' },
       { name: 'Ofimática', path: '/categoria/software/ofimatica' },
-      { name: 'Sistemas Operativo', path: '/categoria/software/sistemas-operativos' },
+      { name: 'Sistemas Operativos', path: '/categoria/software/sistemas-operativos' },
     ],
   },
   { name: 'Varios', path: '/categoria/smartwatches' },
 ];
 
 const CategoryList = () => {
+
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
 
-  const handleToggle = (index) => {
+   const handleToggle = (index) => {
     setExpandedIndex(index === expandedIndex ? null : index);
   };
 
   const handleNavigation = (path) => {
-    console.log(`Ir a: ${path}`);
-    // Usar navigate(path) si usás react-router
+    console.log(`Navegar a: ${path}`);
+    // Aquí usar navigate(path) si usas react-router
   };
 
   return (
     <div className="category-list">
-
       {categories.map((cat, index) => {
         const isExpanded = expandedIndex === index;
         const hasSub = !!cat.subcategories;
 
         return (
-          <div key={index} className="category-item">
+          <div
+            key={index}
+            className={`category-item ${isExpanded ? 'expanded' : ''}`}
+          >
             <div
               className={`category-header ${isExpanded ? 'expanded' : ''}`}
               onClick={() => (hasSub ? handleToggle(index) : handleNavigation(cat.path))}
@@ -141,7 +144,7 @@ const CategoryList = () => {
               <span className="category-name">{cat.name}</span>
               {hasSub && (
                 <span className="category-icon">
-                  {isExpanded ? '-' : '+'}
+                  {isExpanded ? <i class="bi bi-x"></i> : <i class="bi bi-arrow-right-short"></i>}
                 </span>
               )}
             </div>

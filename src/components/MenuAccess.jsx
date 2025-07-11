@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import UserWithoutLogin from '../subComponents/UserWithoutLogin';
+import PersonalInformationAccess from '../subComponents/PersonalInformationAccess';
 
 const MenuAccess = () => {
   // Menu
@@ -52,6 +53,17 @@ const MenuAccess = () => {
     };
   }, []);
 
+  const [ user, setUser ] = useState({
+    firstName: 'Jonatan',
+    lastName: 'Medina',
+    photo: 'https://w7.pngwing.com/pngs/1008/377/png-transparent-computer-icons-avatar-user-profile-avatar-heroes-black-hair-computer.png',
+  });
+
+  const handleLogout = () => {
+    console.log('Sesión Cerrada');
+    setUser(null);
+  }
+
   return (
     <div className='menu'>
       <div className='menu__container-open'>
@@ -61,7 +73,11 @@ const MenuAccess = () => {
       
         <nav className={`menu__container-links ${isOpen ? 'active' : ''}`}>
           <div className='user'>
-           <UserWithoutLogin />
+            {user ? (
+              <PersonalInformationAccess user={user} onLogout={handleLogout}/>
+            ): (
+              <UserWithoutLogin />
+            )}
           </div>
           <Link to='/'><i className="bi bi-house-door"></i>Inicio</Link>
           <button className='search__btn' onClick={() => setShowSearch(true)}><i className="bi bi-search"></i>Buscar productos</button>
